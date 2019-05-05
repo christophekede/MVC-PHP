@@ -7,7 +7,9 @@ class Posts extends Controller {
   } 
 
   public function index(){
-    $data = ['title'=>'WELCOME'
+    $data = [
+      'pageName' => 'Posts',
+      'title'=>'WELCOME'
     ];
     $this->view('pages/index', $data);
   }

@@ -16,6 +16,9 @@
     private $stmt;
     private $error;
 
+    private static $instance=null;
+
+   
     public function __construct(){
       //set DSN
       $dsn='mysql:host='.$this->host.';dbname='.$this->dbname;
@@ -26,16 +29,25 @@
       );
       try {
          $this->dbh = new PDO($dsn, $this->user, $this->pass, $options);
-         echo "Mysql run .. ";  
-        
-
+    
       } catch(PDOException $e){
-          echo "Mysql run .. ";  
+        
         $this->error = $e->getMessage();
         echo $this->error(); 
       }
       
     }
+
+
+    public static function getInstance()
+   {  
+    if(is_null(self::$instance))
+    {
+      self::$instance = new Database();
+    }
+    return self::$instance;
+  }
+ 
 
     public function query($sql){
       $this->stmt = $this->dbh->prepare($sql);

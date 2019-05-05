@@ -1,8 +1,7 @@
 <?php
 class Users extends Controller {
 
-public function __construct(){
-  
+public function __construct(){  
 
 
 } 
@@ -12,6 +11,7 @@ public function register(){
 if($_SERVER['REQUEST_METHOD']=='POST'){
 
   $_POST=filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+  
   $data=[
     'name'=>trim($_POST['name']),
     'email'=>trim($_POST['email']),

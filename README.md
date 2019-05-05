@@ -1,3 +1,3 @@
 # MVC-PHP
 
-Test
+Petit Framework MVC Simple et réutilisable 
